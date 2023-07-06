@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,8 @@ Route::get('/', function () {
     return view('principal');
 });
 
-//vista de registro
-Route::get('/registro', function(){ 
-    return view('auth.register');
-});
+//metodos de registro
+Route::get('/registro', [RegisterController::class, 'index'])->name('registro');
+Route::post('/registro', [RegisterController::class, 'store']);
+
+Route::get('/muro', [PostController::class, 'index'])->name('posts.index');

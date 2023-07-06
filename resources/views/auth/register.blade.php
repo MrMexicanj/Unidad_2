@@ -1,17 +1,14 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Registrate
+    Formulario de Registro
 @endsection
 
 @section('contenido')
-    <div class="md:flex md:justify-center md:gap-8 md:items-center">
-        <div class="md:w-6/12 p-2">
-            <!-- insertar imagen utilizando "asset" (acceder a la carpeta public) -->
-            <img src="{{ asset('imagenes/registro.png') }}" alt="Imagen registro">
-         </div>
-         <div class="md:w-1/2 bg-slate-300 p-6 rounded-lg shadow-xl">
-            <form action="/registro" method="POST" novalidate>
+    <div class="md:flex md:justify-center md:gap-4 md:items-center">
+        <div class="md:w-6/12 p-4">
+                <div class="bg-slate-300 p-6 rounded-lg shadow-xl items-center">
+                <form action="/registro" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -21,7 +18,7 @@
                     id="name" 
                     name="name" 
                     type="text" 
-                    placeholder="Tu Nombre" 
+                    placeholder="Nombre" 
                     class="border p-3 w-full rounded-lg @error('name') border-red-500
                     @enderror"
                     value="{{ old('name') }}"/>
@@ -39,7 +36,7 @@
                     id="username" 
                     name="username" 
                     type="text" 
-                    placeholder="Tu Username" 
+                    placeholder="Username" 
                     class="border p-3 w-full rounded-lg @error('username') border-red-500
                     @enderror"
                     value="{{ old('username') }}"
@@ -56,7 +53,7 @@
                     id="email" 
                     name="email" 
                     type="email" 
-                    placeholder="Tu Email" 
+                    placeholder="Email" 
                     class="border p-3 w-full rounded-lg @error('email') border-red-500
                     @enderror"
                     value="{{ old('email') }}"
@@ -73,7 +70,7 @@
                     id="password" 
                     name="password" 
                     type="password" 
-                    placeholder="Tu Password" 
+                    placeholder="Password" 
                     class="border p-3 w-full rounded-lg @error('password') border-red-500
                     @enderror"
                     value="{{ old('password') }}"/>
