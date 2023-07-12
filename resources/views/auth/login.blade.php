@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('titulo')
-    Inicia Sesión en DevStagram
+    Inicia Sesión
 @endsection
 
 @section('contenido')
     <div class="md:flex md:justify-center md:gap-8 md:items-center">
-        <div class="md:w-6/12 p-2">
          <div class="md:w-1/2 bg-slate-300 p-6 rounded-lg shadow-xl">
             <form  method="POST" action="{{ route('login') }}" novalidate>
                 @csrf

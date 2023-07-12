@@ -20,11 +20,22 @@
                 <h1 class="text-3xl font-black">
                     Evaluación U2
                 </h1>
-                    <!-- separa login y registro (se almacenas los enlaces para los registros)-->
-                    <nav class="flex gap-3">
-                        <a class="font-bold uppercase text-black text-sm" href="/login">Login</a>
-                        <a class="font-bold uppercase text-black text-sm" href="/registro">Registro</a>
-                        </nav>
+                @auth
+                    <!-- verifica si el usario esta autenticado (si es asi muestra esto) -->
+                <nav>
+                    <!-- lo renvia a la vista login -->
+                    <a href="{{ route('logout') }}" class="font-bold uppercase text-gray-600 text-sm">
+                        Cerrar Sesíon
+                    </a>
+                </nav>
+                @endauth
+                <!-- (gest) Determinar si el ausuario no autenticado -->
+                @guest
+                <nav class="flex gap-2 items-center">
+                <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login')}}">Login</a>  
+                <a class="font-bold uppercase text-gray-600 text-sm" href="/registro">Crear Cuenta</a>     
+                </nav>
+                @endguest
             </div>
        </header>
        <!-- se inserta el contenido que comparten las paginas-->
@@ -34,5 +45,9 @@
             </h2>
         @yield('contenido')
        </main>
+       <!-- Pie de pagina -->
+       <footer class="mt-10 text-center p-5 text-white font-bold">
+        Todos los derechos reservados {{ now()->year }}
+    </footer>
     </body>
 </html>
