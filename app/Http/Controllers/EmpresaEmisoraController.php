@@ -10,7 +10,7 @@ class EmpresaEmisoraController extends Controller
 
     public function index(){
         $empresaemisoras = EmpresaE::get();
-        return view('posts.index');
+        return view('fact.index', compact('empresaemisoras'));
      }
 
         public function store(Request $request){
@@ -22,7 +22,7 @@ class EmpresaEmisoraController extends Controller
             'rfc_emisor' => $request->rfc_emisor
             ]);
 
-            return to_route('posts.index');
+            return route('posts.index');
          }
          
 }

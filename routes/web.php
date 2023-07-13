@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\EmpresaEmisoraController;
 use App\Http\Controllers\EmpresaReceptoraController;
@@ -36,6 +37,10 @@ Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/EmpresaEmisora', [EmpresaEmisoraController::class, 'index'])->name('EmpresaE.index');
 Route::post('/EmpresaEmisora', [EmpresaEmisoraController::class, 'store'])->name('EmpresaE.store');
+Route::get('/fact/index', [EmpresaEmisoraController::class, 'index'])->name('fact.index');
 
 Route::get('/EmpresaReceptora', [EmpresaReceptoraController::class, 'index'])->name('EmpresaR.index');
 Route::post('/EmpresaReceptora', [EmpresaReceptoraController::class, 'store'])->name('EmpresaR.store');
+Route::post('/fact/index', [EmpresaReceptoraController::class, 'index']);
+
+Route::post('/archivos', [ArchivoController::class, 'store'])->name('archivos.store');

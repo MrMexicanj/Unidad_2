@@ -9,7 +9,7 @@ class EmpresaReceptoraController extends Controller
 {
     public function index(){
         $empresareceptoras = EmpresaR::get();
-        return view('posts.index');
+        return view('fact.index', compact('empresareceptoras'));
      }
 
         public function store(Request $request){
@@ -23,6 +23,6 @@ class EmpresaReceptoraController extends Controller
             'email' => $request->email
             ]);
 
-            return to_route('posts.index');
+            return route('posts.index');
          }
 }

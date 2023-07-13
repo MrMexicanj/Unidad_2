@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <script src="{{ asset('js/app.js') }}"></script>
         <!-- Styles -->
+        @stack('styles')
     </head>
     <body background="imagenes/1920x1080-Imagen-de-fondo-purpura-24.jpg">
        <header class="p-5 border-b bg-gray-500 shadow">
